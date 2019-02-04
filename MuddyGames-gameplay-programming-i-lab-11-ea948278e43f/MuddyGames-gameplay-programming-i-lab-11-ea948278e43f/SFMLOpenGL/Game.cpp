@@ -39,9 +39,9 @@ typedef struct
 	float coordinate[3];
 	float color[4];
 	float texel[2];
-} Vertex;
+} Vert;
 
-Vertex vertex[36];
+Vert vertex[36];
 GLubyte triangles[36];
 
 /* Variable to hold the VBO identifier and shader data */
@@ -248,7 +248,7 @@ void Game::initialize()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 
 	/* Upload vertex data to GPU */
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vert) * 36, vertex, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glGenBuffers(1, &index);
@@ -392,14 +392,47 @@ void Game::update()
 			flip = false;
 	}
 
-	for (int i = 0; i < 36; i++)
-	{
-		/*GLfloat angle = 5.0f;
-		glRotatef(angle, vertex[i].coordinate[0], vertex[i].coordinate[1], vertex[i].coordinate[2]);*/
-		
-}
 
-	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		matrixApplicationFunction(MyMatrix3::rotationY(0.001));
+}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		matrixApplicationFunction(MyMatrix3::rotationY(-0.001));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		matrixApplicationFunction(MyMatrix3::rotationX(0.001));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		matrixApplicationFunction(MyMatrix3::rotationX(-0.001));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0, 0.005, 0 }));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0,-0.005,0 }));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ -0.005,0,0 }));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0.005,0,0 }));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+	{
+		matrixApplicationFunction(MyMatrix3::scale(double{ 0.99 }));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+	{
+		matrixApplicationFunction(MyMatrix3::scale(double{ 1.01 }));
+	}
 
 #if (DEBUG >= 2)
 	DEBUG_MSG("Update up...");
@@ -423,7 +456,7 @@ void Game::render()
 
 	/*	As the data positions will be updated by the this program on the
 		CPU bind the updated data to the GPU for drawing	*/
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vert) * 36, vertex, GL_STATIC_DRAW);
 
 	/*	Draw Triangle from VBO	(set where to start from as VBO can contain
 		model components that 'are' and 'are not' to be drawn )	*/
@@ -434,9 +467,9 @@ void Game::render()
 
 	// Set pointers for each parameter
 	// https://www.opengl.org/sdk/docs/man4/html/glVertexAttribPointer.xhtml
-	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
+	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
+	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
 
 	//Enable Arrays
 	glEnableVertexAttribArray(positionID);
@@ -459,3 +492,16 @@ void Game::unload()
 	stbi_image_free(img_data); //Free image
 }
 
+void Game::matrixApplicationFunction(MyMatrix3 t_matrix)
+{
+	for (int i = 0; i < 36; i++)
+	{
+		MyVector3 vector{ vertex[i].coordinate[0], vertex[i].coordinate[1], vertex[i].coordinate[2] };
+
+		vector = t_matrix * vector;
+		vertex[i].coordinate[0] = vector.x;
+		vertex[i].coordinate[1] = vector.y;
+		vertex[i].coordinate[2] = vector.z;
+	}
+
+}
