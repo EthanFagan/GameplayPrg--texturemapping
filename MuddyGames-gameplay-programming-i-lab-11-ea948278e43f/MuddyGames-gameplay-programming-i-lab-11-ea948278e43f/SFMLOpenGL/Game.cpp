@@ -241,6 +241,28 @@ void Game::initialize()
 	triangles[27] = 27;   triangles[28] = 28;   triangles[29] = 29;
 	triangles[30] = 30;   triangles[31] = 31;   triangles[32] = 32;
 	triangles[33] = 33;   triangles[34] = 34;   triangles[35] = 35;
+
+	for (int i = 0; i < 36; i += 6)
+	{
+		vertex[i].texel[0] = 0.5f;
+		vertex[i].texel[1] = 0.5f;
+
+		vertex[i + 1].texel[0] = 1.0f;
+		vertex[i + 1].texel[1] = 1.0f;
+
+		vertex[i + 2].texel[0] = 1.0f;
+		vertex[i + 2].texel[1] = 0.0f;
+
+		vertex[i + 3].texel[0] = 1.0f;
+		vertex[i + 3].texel[1] = 0.0f;
+
+		vertex[i + 4].texel[0] = 1.0f;
+		vertex[i + 4].texel[1] = 1.0f;
+
+		vertex[i + 5].texel[0] = -0.5f;
+		vertex[i + 5].texel[1] = -0.5f;
+	}
+
 	/* Create a new VBO using VBO id */
 	glGenBuffers(1, vbo);
 
@@ -411,19 +433,19 @@ void Game::update()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0, 0.005, 0 }));
+		vectorApplicationFunction(MyVector3{ 0, 0.005, 0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0,-0.005,0 }));
+		vectorApplicationFunction(MyVector3{ 0,-0.005,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ -0.005,0,0 }));
+		vectorApplicationFunction(MyVector3{ -0.005,0,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		matrixApplicationFunction(MyMatrix3::translation(MyVector3{ 0.005,0,0 }));
+		vectorApplicationFunction(MyVector3{ 0.005,0,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
@@ -504,4 +526,17 @@ void Game::matrixApplicationFunction(MyMatrix3 t_matrix)
 		vertex[i].coordinate[2] = vector.z;
 	}
 
+}
+
+void Game::vectorApplicationFunction(MyVector3 t_vector)
+{
+	for (int i = 0; i < 36; i++)
+	{
+		MyVector3 vector{ vertex[i].coordinate[0], vertex[i].coordinate[1], vertex[i].coordinate[2] };
+
+		vector = t_vector + vector;
+		vertex[i].coordinate[0] = vector.x;
+		vertex[i].coordinate[1] = vector.y;
+		vertex[i].coordinate[2] = vector.z;
+	}
 }

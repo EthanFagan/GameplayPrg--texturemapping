@@ -33,6 +33,7 @@ private:
 	void render();
 	void unload();
 	void Game::matrixApplicationFunction(MyMatrix3 t_matrix);
+	void Game::vectorApplicationFunction(MyVector3 t_vector);
 
 	Clock clock;
 	Time elapsed;
