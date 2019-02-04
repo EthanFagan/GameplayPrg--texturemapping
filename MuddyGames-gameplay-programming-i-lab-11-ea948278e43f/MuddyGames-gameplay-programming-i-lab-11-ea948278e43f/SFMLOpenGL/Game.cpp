@@ -108,27 +108,27 @@ void Game::initialize()
 	//--------------------------------------------------
 	vertex[6].coordinate[0] = -0.5f;
 	vertex[6].coordinate[1] = 0.5f;
-	vertex[6].coordinate[2] = -0.5f;
+	vertex[6].coordinate[2] = -1.0f;
 
 	vertex[7].coordinate[0] = 0.5f;
 	vertex[7].coordinate[1] = -0.5f;
-	vertex[7].coordinate[2] = -0.5f;
+	vertex[7].coordinate[2] = -1.0f;
 
 	vertex[8].coordinate[0] = -0.5f;
 	vertex[8].coordinate[1] = -0.5f;
-	vertex[8].coordinate[2] = -0.5f;
+	vertex[8].coordinate[2] = -1.0f;
 	//-------------------------------------------------- back face
 	vertex[9].coordinate[0] = 0.5f;
 	vertex[9].coordinate[1] = 0.5f;
-	vertex[9].coordinate[2] = -0.5f;
+	vertex[9].coordinate[2] = -1.0f;
 
 	vertex[10].coordinate[0] = 0.5f;
 	vertex[10].coordinate[1] = -0.5f;
-	vertex[10].coordinate[2] = -0.5f;
+	vertex[10].coordinate[2] = -1.0f;
 
 	vertex[11].coordinate[0] = -0.5f;
 	vertex[11].coordinate[1] = 0.5f;
-	vertex[11].coordinate[2] = -0.5f;
+	vertex[11].coordinate[2] = -1.0f;
 	//--------------------------------------------------
 
 	vertex[12].coordinate[0] = -0.5f;
@@ -141,11 +141,11 @@ void Game::initialize()
 
 	vertex[14].coordinate[0] = -0.5f;
 	vertex[14].coordinate[1] = -0.5f;
-	vertex[14].coordinate[2] = -0.5f;
+	vertex[14].coordinate[2] = -1.0f;
 	//-------------------------------------------------- left face
 	vertex[15].coordinate[0] = -0.5f;
 	vertex[15].coordinate[1] = 0.5f;
-	vertex[15].coordinate[2] = -0.5f;
+	vertex[15].coordinate[2] = -1.0f;
 
 	vertex[16].coordinate[0] = -0.5f;
 	vertex[16].coordinate[1] = 0.5f;
@@ -153,7 +153,7 @@ void Game::initialize()
 
 	vertex[17].coordinate[0] = -0.5f;
 	vertex[17].coordinate[1] = -0.5f;
-	vertex[17].coordinate[2] = -0.5f;
+	vertex[17].coordinate[2] = -1.0f;
 	//--------------------------------------------------
 	vertex[18].coordinate[0] = 0.5f;
 	vertex[18].coordinate[1] = 0.5f;
@@ -165,11 +165,11 @@ void Game::initialize()
 
 	vertex[20].coordinate[0] = 0.5f;
 	vertex[20].coordinate[1] = -0.5f;
-	vertex[20].coordinate[2] = -0.5f;
+	vertex[20].coordinate[2] = -1.0f;
 	//-------------------------------------------------- Right face
 	vertex[21].coordinate[0] = 0.5f;
 	vertex[21].coordinate[1] = 0.5f;
-	vertex[21].coordinate[2] = -0.5f;
+	vertex[21].coordinate[2] = -1.0f;
 
 	vertex[22].coordinate[0] = 0.5f;
 	vertex[22].coordinate[1] = 0.5f;
@@ -177,11 +177,11 @@ void Game::initialize()
 
 	vertex[23].coordinate[0] = 0.5f;
 	vertex[23].coordinate[1] = -0.5f;
-	vertex[23].coordinate[2] = -0.5f;
+	vertex[23].coordinate[2] = -1.0f;
 	//--------------------------------------------------
 	vertex[24].coordinate[0] = 0.5f;
 	vertex[24].coordinate[1] = -0.5f;
-	vertex[24].coordinate[2] = -0.5f;
+	vertex[24].coordinate[2] = -1.0f;
 
 	vertex[25].coordinate[0] = 0.5f;
 	vertex[25].coordinate[1] = -0.5f;
@@ -189,11 +189,11 @@ void Game::initialize()
 
 	vertex[26].coordinate[0] = -0.5f;
 	vertex[26].coordinate[1] = -0.5f;
-	vertex[26].coordinate[2] = -0.5f;
+	vertex[26].coordinate[2] = -1.0f;
 	//-------------------------------------------------- Bottom face
 	vertex[27].coordinate[0] = -0.5f;
 	vertex[27].coordinate[1] = -0.5f;
-	vertex[27].coordinate[2] = -0.5f;
+	vertex[27].coordinate[2] = -1.0f;
 
 	vertex[28].coordinate[0] = -0.5f;
 	vertex[28].coordinate[1] = -0.5f;
@@ -205,7 +205,7 @@ void Game::initialize()
 	//--------------------------------------------------
 	vertex[30].coordinate[0] = -0.5f;
 	vertex[30].coordinate[1] = 0.5f;
-	vertex[30].coordinate[2] = -0.5f;
+	vertex[30].coordinate[2] = -1.0f;
 
 	vertex[31].coordinate[0] = -0.5f;
 	vertex[31].coordinate[1] = 0.5f;
@@ -213,11 +213,11 @@ void Game::initialize()
 
 	vertex[32].coordinate[0] = 0.5f;
 	vertex[32].coordinate[1] = 0.5f;
-	vertex[32].coordinate[2] = -0.5f;
+	vertex[32].coordinate[2] = -1.0f;
 	//-------------------------------------------------- Top face
 	vertex[33].coordinate[0] = 0.5f;
 	vertex[33].coordinate[1] = 0.5f;
-	vertex[33].coordinate[2] = -0.5f;
+	vertex[33].coordinate[2] = -1.0f;
 
 	vertex[34].coordinate[0] = 0.5f;
 	vertex[34].coordinate[1] = 0.5f;
