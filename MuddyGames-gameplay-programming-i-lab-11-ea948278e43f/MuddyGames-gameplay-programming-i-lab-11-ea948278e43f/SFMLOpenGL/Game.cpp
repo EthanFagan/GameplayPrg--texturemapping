@@ -60,7 +60,7 @@ GLuint	index,		//Index to draw
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const string filename = "texture.tga";
+const string filename = "cube2.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -117,7 +117,7 @@ void Game::initialize()
 	vertex[8].coordinate[0] = -0.5f;
 	vertex[8].coordinate[1] = -0.5f;
 	vertex[8].coordinate[2] = -1.0f;
-	//-------------------------------------------------- back face
+	////-------------------------------------------------- back face
 	vertex[9].coordinate[0] = 0.5f;
 	vertex[9].coordinate[1] = 0.5f;
 	vertex[9].coordinate[2] = -1.0f;
@@ -129,7 +129,7 @@ void Game::initialize()
 	vertex[11].coordinate[0] = -0.5f;
 	vertex[11].coordinate[1] = 0.5f;
 	vertex[11].coordinate[2] = -1.0f;
-	//--------------------------------------------------
+	////--------------------------------------------------
 
 	vertex[12].coordinate[0] = -0.5f;
 	vertex[12].coordinate[1] = 0.5f;
@@ -142,7 +142,7 @@ void Game::initialize()
 	vertex[14].coordinate[0] = -0.5f;
 	vertex[14].coordinate[1] = -0.5f;
 	vertex[14].coordinate[2] = -1.0f;
-	//-------------------------------------------------- left face
+	////-------------------------------------------------- left face
 	vertex[15].coordinate[0] = -0.5f;
 	vertex[15].coordinate[1] = 0.5f;
 	vertex[15].coordinate[2] = -1.0f;
@@ -154,7 +154,7 @@ void Game::initialize()
 	vertex[17].coordinate[0] = -0.5f;
 	vertex[17].coordinate[1] = -0.5f;
 	vertex[17].coordinate[2] = -1.0f;
-	//--------------------------------------------------
+	////--------------------------------------------------
 	vertex[18].coordinate[0] = 0.5f;
 	vertex[18].coordinate[1] = 0.5f;
 	vertex[18].coordinate[2] = 0.0f;
@@ -166,7 +166,7 @@ void Game::initialize()
 	vertex[20].coordinate[0] = 0.5f;
 	vertex[20].coordinate[1] = -0.5f;
 	vertex[20].coordinate[2] = -1.0f;
-	//-------------------------------------------------- Right face
+	////-------------------------------------------------- Right face
 	vertex[21].coordinate[0] = 0.5f;
 	vertex[21].coordinate[1] = 0.5f;
 	vertex[21].coordinate[2] = -1.0f;
@@ -178,7 +178,7 @@ void Game::initialize()
 	vertex[23].coordinate[0] = 0.5f;
 	vertex[23].coordinate[1] = -0.5f;
 	vertex[23].coordinate[2] = -1.0f;
-	//--------------------------------------------------
+	////--------------------------------------------------
 	vertex[24].coordinate[0] = 0.5f;
 	vertex[24].coordinate[1] = -0.5f;
 	vertex[24].coordinate[2] = -1.0f;
@@ -190,7 +190,7 @@ void Game::initialize()
 	vertex[26].coordinate[0] = -0.5f;
 	vertex[26].coordinate[1] = -0.5f;
 	vertex[26].coordinate[2] = -1.0f;
-	//-------------------------------------------------- Bottom face
+	////-------------------------------------------------- Bottom face
 	vertex[27].coordinate[0] = -0.5f;
 	vertex[27].coordinate[1] = -0.5f;
 	vertex[27].coordinate[2] = -1.0f;
@@ -202,7 +202,7 @@ void Game::initialize()
 	vertex[29].coordinate[0] = 0.5f;
 	vertex[29].coordinate[1] = -0.5f;
 	vertex[29].coordinate[2] = 0.0f;
-	//--------------------------------------------------
+	////--------------------------------------------------
 	vertex[30].coordinate[0] = -0.5f;
 	vertex[30].coordinate[1] = 0.5f;
 	vertex[30].coordinate[2] = -1.0f;
@@ -214,7 +214,7 @@ void Game::initialize()
 	vertex[32].coordinate[0] = 0.5f;
 	vertex[32].coordinate[1] = 0.5f;
 	vertex[32].coordinate[2] = -1.0f;
-	//-------------------------------------------------- Top face
+	////-------------------------------------------------- Top face
 	vertex[33].coordinate[0] = 0.5f;
 	vertex[33].coordinate[1] = 0.5f;
 	vertex[33].coordinate[2] = -1.0f;
@@ -242,26 +242,114 @@ void Game::initialize()
 	triangles[30] = 30;   triangles[31] = 31;   triangles[32] = 32;
 	triangles[33] = 33;   triangles[34] = 34;   triangles[35] = 35;
 
-	for (int i = 0; i < 36; i += 6)
-	{
-		vertex[i].texel[0] = 0.5f;
-		vertex[i].texel[1] = 0.5f;
+	vertex[0].texel[0] = 0.25f;
+	vertex[0].texel[1] = 0.25f;
 
-		vertex[i + 1].texel[0] = 1.0f;
-		vertex[i + 1].texel[1] = 1.0f;
+	vertex[1].texel[0] = 0.5f;
+	vertex[1].texel[1] = 0.0f;
 
-		vertex[i + 2].texel[0] = 1.0f;
-		vertex[i + 2].texel[1] = 0.0f;
+	vertex[2].texel[0] = 0.25f;
+	vertex[2].texel[1] = 0.0f;
 
-		vertex[i + 3].texel[0] = 1.0f;
-		vertex[i + 3].texel[1] = 0.0f;
+	vertex[3].texel[0] = 0.5f;
+	vertex[3].texel[1] = 0.25f;
 
-		vertex[i + 4].texel[0] = 1.0f;
-		vertex[i + 4].texel[1] = 1.0f;
+	vertex[4].texel[0] = 0.5f;
+	vertex[4].texel[1] = 0.0f;
 
-		vertex[i + 5].texel[0] = -0.5f;
-		vertex[i + 5].texel[1] = -0.5f;
-	}
+	vertex[5].texel[0] = 0.25f;
+	vertex[5].texel[1] = 0.25f;
+
+	vertex[6].texel[0] = 0.5f;
+	vertex[6].texel[1] = 0.25f;
+
+	vertex[7].texel[0] = 0.25f;
+	vertex[7].texel[1] = 0.5f;
+
+	vertex[8].texel[0] = 0.25f;
+	vertex[8].texel[1] = 0.25f;
+
+	vertex[9].texel[0] = 0.5f;
+	vertex[9].texel[1] = 0.5f;
+
+	vertex[10].texel[0] = 0.5f;
+	vertex[10].texel[1] = 0.25f;
+
+	vertex[11].texel[0] = 0.25f;
+	vertex[11].texel[1] = 0.5f;
+
+	vertex[12].texel[0] = 0.25f;
+	vertex[12].texel[1] = 0.25f;
+
+	vertex[13].texel[0] = 0.0f;
+	vertex[13].texel[1] = 0.25f;
+
+	vertex[14].texel[0] = 0.0f;
+	vertex[14].texel[1] = 0.5f;
+
+	vertex[15].texel[0] = 0.25f;
+	vertex[15].texel[1] = 0.5f;
+
+	vertex[16].texel[0] = 0.0f;
+	vertex[16].texel[1] = 0.5f;
+
+	vertex[17].texel[0] = 0.25f;
+	vertex[17].texel[1] = 0.25f;
+
+	vertex[18].texel[0] = 0.75f;
+	vertex[18].texel[1] = 0.25f;
+
+	vertex[19].texel[0] = 0.5f;
+	vertex[19].texel[1] = 0.25f;
+
+	vertex[20].texel[0] = 0.5f;
+	vertex[20].texel[1] = 0.5f;
+
+	vertex[21].texel[0] = 0.75f;
+	vertex[21].texel[1] = 0.5f;
+
+	vertex[22].texel[0] = 0.75f;
+	vertex[22].texel[1] = 0.25f;
+
+	vertex[23].texel[0] = 0.5f;
+	vertex[23].texel[1] = 0.5f;
+
+	vertex[24].texel[0] = 0.75f;
+	vertex[24].texel[1] = 0.25f;
+
+	vertex[25].texel[0] = 0.75f;
+	vertex[25].texel[1] = 0.5f;
+
+	vertex[26].texel[0] = 1.0f;
+	vertex[26].texel[1] = 0.25f;
+
+	vertex[27].texel[0] = 1.0f;
+	vertex[27].texel[1] = 0.5f;
+
+	vertex[28].texel[0] = 0.75f;
+	vertex[28].texel[1] = 0.25f;
+
+	vertex[29].texel[0] = 1.0f;
+	vertex[29].texel[1] = 0.25f;
+
+	vertex[30].texel[0] = 0.25f;
+	vertex[30].texel[1] = 0.5f;
+
+	vertex[31].texel[0] = 0.25f;
+	vertex[31].texel[1] = 0.75f;
+
+	vertex[32].texel[0] = 0.5f;
+	vertex[32].texel[1] = 0.5f;
+
+	vertex[33].texel[0] = 0.5f;
+	vertex[33].texel[1] = 0.5f;
+
+	vertex[34].texel[0] = 0.5f;
+	vertex[34].texel[1] = 0.75f;
+
+	vertex[35].texel[0] = 0.25f;
+	vertex[35].texel[1] = 0.75f;
+
 
 	/* Create a new VBO using VBO id */
 	glGenBuffers(1, vbo);
